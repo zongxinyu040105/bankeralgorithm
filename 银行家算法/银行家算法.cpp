@@ -45,7 +45,7 @@ public:
         else
         {
             
-            cout << "不可以分配" << endl;
+            cout << "不可以分配!" << endl;
             /*for (int i = 0; i < m; i++)
             {
                 cout << available[i] << endl;
@@ -57,6 +57,7 @@ public:
         {
             if (request[i] > Need[request_num][i]||request[i]>available[i])
             {
+                cout << "需求资源数超过其宣布最大值或无足够资源" << endl;
                 return false;
             }
         }
@@ -124,6 +125,7 @@ public:
                     Allocation[request_num][i] -= request[i];
                     Need[request_num][i] += request[i];
                 }
+                cout << "分配后不处于安全状态，进行回退。" << endl;
                 return false;
             }
 
@@ -135,7 +137,7 @@ public:
         cin >> m;//列
         cout << "输入进程个数 " << endl;
         cin >> n;//行
-        cout << "输入max一行一个进程 " << endl;
+        cout << "输入max " << endl;
         Max = new int* [n];
         for (int i = 0; i < n; i++)
         {
@@ -148,7 +150,7 @@ public:
                 cin >> Max[i][j];
             }
         }
-        cout << "输入allocation一行一个进程 " << endl;
+        cout << "输入allocation " << endl;
         Allocation = new int* [n];
         for (int i = 0; i < n; i++)
         {
